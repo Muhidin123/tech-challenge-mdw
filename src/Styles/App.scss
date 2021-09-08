@@ -1,6 +1,50 @@
 @import "variables";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"); //Poppins font import
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Poppins;
+  color: $mid-grey;
+  overflow-x: hidden;
+  font-size: medium;
+}
+
+.text_button {
+  font-weight: bold;
+  border: none;
+  background: none;
+  color: $gold;
+  font-size: 1rem;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.text_button:hover {
+  cursor: pointer;
+  color: $mid-grey;
+}
+
+.click_button {
+  padding: 0.75rem 2rem;
+  border: none;
+  background-color: $gold;
+  color: white;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+.click_button:hover {
+  background-color: $mid-grey;
+}
+
 body {
   background-color: $dark-grey;
 }

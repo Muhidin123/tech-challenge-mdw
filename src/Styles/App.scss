@@ -12,6 +12,27 @@
   font-size: medium;
 }
 
+body {
+  background-color: $dark-grey;
+}
+
+h1 {
+  font-size: 3rem;
+  color: white;
+}
+
+h2 {
+  font-size: 2rem;
+  color: $dark-grey;
+}
+
+hr {
+  width: 13rem;
+  height: 3rem;
+  background-color: $gold;
+  margin-bottom: 2rem;
+}
+
 .text_button {
   font-weight: bold;
   border: none;
@@ -45,8 +66,8 @@
   background-color: $mid-grey;
 }
 
-body {
-  background-color: $dark-grey;
+a {
+  text-decoration: none;
 }
 
 .App {
@@ -57,4 +78,28 @@ body {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+
+.container {
+  width: 100vw;
+  padding: 0 0.5rem;
+  max-width: 1280px;
+  position: absolute;
+  top: 45px;
+}
+
+.card_container {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+  grid-gap: 0.5rem;
+  margin-bottom: 4rem;
+  margin-top: 15vh;
+}
+
+@media (min-width: 768px) {
+  .card_container {
+    grid-gap: 2rem;
+  }
 }

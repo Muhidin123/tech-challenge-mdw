@@ -1,0 +1,16 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"); //Poppins font import
+
+body {
+  background-color: $dark-grey;
+}
+
+.App {
+  background-color: $dark-grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}

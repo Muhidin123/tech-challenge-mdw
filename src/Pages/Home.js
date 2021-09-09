@@ -4,6 +4,7 @@ import axios from "axios";
 
 //Component imports
 import Card from "../Components/Card.js";
+import Users from "../Components/Users.js";
 
 //Img imports
 import Rabbit from "../assets/Rabbit.png";
@@ -38,6 +39,8 @@ export default function App() {
             );
           })}
       </div>
+
+      <Users />
     </div>
   );
 }

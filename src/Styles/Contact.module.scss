@@ -73,10 +73,6 @@ form > * {
   grid-column: 1 / -1;
 }
 
-input:required:focus {
-  border: 1px solid red;
-}
-
 textarea {
   resize: none;
 }

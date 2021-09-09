@@ -4,6 +4,10 @@ import axios from "axios";
 import styles from "../Styles/Contact.module.scss";
 import "../Styles/App.scss";
 
+const API_URI = "https://api.mwi.dev/";
+const API_POST_URI =
+  "https://us-central1-midwestern-api.cloudfunctions.net/api/contacts";
+
 export default function Contact() {
   const [content, setContent] = useState({});
   const [formData, setFormData] = useState({
@@ -14,29 +18,32 @@ export default function Contact() {
     message: "",
   });
 
-  const apiURI = "https://api.mwi.dev/";
-
   useEffect(() => {
-    axios.get(apiURI.concat("content/contact")).then(res => {
+    axios.get(API_URI.concat("content/contact")).then(res => {
       setContent(res.data.data[0]);
     });
   }, []);
 
   const validateEmail = email => {
+    let emailInput = document.getElementById("email");
     let emailRegex =
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info)\b/;
-    return emailRegex.test(email);
+
+    email === ""
+      ? (emailInput.style.border = "1px solid red")
+      : emailRegex.test(email)
+      ? emailRegex.test(email)
+      : alert("Email not valid");
   };
+
   const handleSubmit = e => {
     if (validateEmail(formData.email)) {
       e.preventDefault();
-      axios.post(apiURI.concat("contact"), formData).then(res => {
-        let parsedJson = JSON.parse(res.data.content);
-        alert("Thank you " + parsedJson.first_name);
+      axios.post(API_POST_URI, formData).then(_res => {
+        alert("Your message was sent! Thank you!");
       });
-    } else {
-      document.getElementById("email").style.border = "solid #800000";
     }
+    return;
   };
 
   const handleInputChange = e => {

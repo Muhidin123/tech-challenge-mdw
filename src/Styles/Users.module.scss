@@ -1,0 +1,31 @@
+@import "variables";
+
+.puzzle {
+  margin-bottom: 3rem;
+}
+
+.puzzle p {
+  color: white;
+}
+
+.puzzle a {
+  color: $gold;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.puzzle a:hover {
+  color: $mid-grey;
+}
+
+.puzzle ul {
+  margin: 1rem 0 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .puzzle {
+    padding: 0 2rem;
+  }
+}

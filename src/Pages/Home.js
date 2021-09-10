@@ -5,6 +5,7 @@ import axios from "axios";
 //Component imports
 import Card from "../Components/Card.js";
 import Users from "../Components/Users.js";
+import Loading from "./Loader";
 
 //Img imports
 import Rabbit from "../assets/Rabbit.png";
@@ -17,17 +18,22 @@ const apiURI = "https://api.mwi.dev/content/home";
 
 export default function App() {
   const [content, setContent] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios.get(apiURI).then(res => {
-      console.log(res.data.data);
       setContent(res.data.data);
+      setLoading(false);
     });
   }, []);
 
   return (
     <div className='container'>
       <div className='card_container'>
+        <div style={{ display: loading ? "block" : "none" }}>
+          <Loading />
+        </div>
         {content &&
           content.map((elem, index) => {
             return (

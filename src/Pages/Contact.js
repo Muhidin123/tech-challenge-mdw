@@ -3,7 +3,6 @@ import axios from "axios";
 
 import styles from "../Styles/Contact.module.scss";
 import "../Styles/App.scss";
-import Loader from "react-loader-spinner";
 import Loading from "./Loader";
 
 const API_URI = "https://api.mwi.dev/";

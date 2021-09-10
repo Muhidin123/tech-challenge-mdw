@@ -38,6 +38,7 @@ export default function Contact() {
       .catch(error => {
         setLoading(false);
         if (error.response) {
+          document.getElementById("email").style.border = "solid 1px red";
           alert(error.response.data.error.message.email);
         }
       });

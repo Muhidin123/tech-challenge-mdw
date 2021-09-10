@@ -6,15 +6,14 @@ import "../Styles/App.scss";
 
 const API_URI = "https://api.mwi.dev/";
 const API_POST_URI =
-  "https://us-central1-midwestern-api.cloudfunctions.net/api/contacts";
-
+  "http://localhost:5000/midwestern-api/us-central1/api/contacts";
 export default function Contact() {
   const [content, setContent] = useState({});
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
     title: "",
-    email: "",
+    email: " ",
     message: "",
   });
 
@@ -24,26 +23,18 @@ export default function Contact() {
     });
   }, []);
 
-  const validateEmail = email => {
-    let emailInput = document.getElementById("email");
-    let emailRegex =
-      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info)\b/;
-
-    email === ""
-      ? (emailInput.style.border = "1px solid red")
-      : emailRegex.test(email)
-      ? emailRegex.test(email)
-      : alert("Email not valid");
-  };
-
   const handleSubmit = e => {
-    if (validateEmail(formData.email)) {
-      e.preventDefault();
-      axios.post(API_POST_URI, formData).then(_res => {
+    e.preventDefault();
+    axios
+      .post(API_POST_URI, formData)
+      .then(_res => {
         alert("Your message was sent! Thank you!");
+      })
+      .catch(error => {
+        if (error.response) {
+          alert(error.response.data.error.message.email);
+        }
       });
-    }
-    return;
   };
 
   const handleInputChange = e => {

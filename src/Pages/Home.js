@@ -20,6 +20,7 @@ export default function App() {
 
   useEffect(() => {
     axios.get(apiURI).then(res => {
+      console.log(res.data.data);
       setContent(res.data.data);
     });
   }, []);

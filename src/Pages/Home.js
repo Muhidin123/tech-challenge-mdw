@@ -14,7 +14,8 @@ import Shield from "../assets/Shield.png";
 
 const imgs = [Talkie, Rabbit, Shield];
 
-const apiURI = "https://api.mwi.dev/content/home";
+const apiURI =
+  "https://us-central1-midwestern-api.cloudfunctions.net/api/pages/home";
 
 export default function App() {
   const [content, setContent] = useState();
@@ -23,7 +24,7 @@ export default function App() {
   useEffect(() => {
     setLoading(true);
     axios.get(apiURI).then(res => {
-      setContent(res.data.data);
+      setContent(res.data);
       setLoading(false);
     });
   }, []);

@@ -5,7 +5,8 @@ import styles from "../Styles/Contact.module.scss";
 import "../Styles/App.scss";
 import Loading from "./Loader";
 
-const API_URI = "https://api.mwi.dev/";
+const API_URI =
+  "https://us-central1-midwestern-api.cloudfunctions.net/api/pages/contact";
 const API_POST_URI =
   "https://us-central1-midwestern-api.cloudfunctions.net/api/contacts";
 export default function Contact() {
@@ -20,8 +21,9 @@ export default function Contact() {
   });
 
   useEffect(() => {
-    axios.get(API_URI.concat("content/contact")).then(res => {
-      setContent(res.data.data[0]);
+    axios.get(API_URI).then(res => {
+      console.log(res.data);
+      setContent(res.data[0]);
     });
   }, []);
 
@@ -55,7 +57,6 @@ export default function Contact() {
   };
 
   return (
-    // quick and dirty loader adding
     <div>
       <div style={{ display: loading ? "block" : "none" }}>
         <Loading />

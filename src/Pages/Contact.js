@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import styles from "../Styles/Contact.module.scss";
 import "../Styles/App.scss";
 import Loading from "./Loader";
@@ -9,7 +8,7 @@ const API_URI =
   "https://us-central1-midwestern-api.cloudfunctions.net/api/pages/contact";
 const API_POST_URI =
   "https://us-central1-midwestern-api.cloudfunctions.net/api/contacts";
-export default function Contact() {
+export default function Contact(props) {
   const [content, setContent] = useState({});
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -36,6 +35,7 @@ export default function Contact() {
         // quick and dirty loader adding
         setLoading(false);
         alert("Your message was sent! Thank you!");
+        props.history.push("/");
       })
       .catch(error => {
         setLoading(false);

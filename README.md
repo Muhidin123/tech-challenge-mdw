@@ -23,4 +23,26 @@
 
 - Backend is deployed to google cloud / firebase
 - Link to [backend](https://github.com/Muhidin123/tech-challenge-mdw-backend)
-- All page pulling is done from
+
+# Content Sections
+
+## Pages
+
+- GET https://us-central1-midwestern-api.cloudfunctions.net/api/pages/ {home} or {contact} can be home or contact to get home or contact page
+- GET https://us-central1-midwestern-api.cloudfunctions.net/api/pages to get all pages
+
+## Contacts
+
+- GET https://us-central1-midwestern-api.cloudfunctions.net/api/contacts to get all contacts currently saved in database
+- POST https://us-central1-midwestern-api.cloudfunctions.net/api/contacts to SAVE a new contact
+  - Accepts a form data object with all the key/value paris from the form
+    Example payload:
+    ```json
+    {
+      "first_name": "First",
+      "last_name": "Last",
+      "title": "Title",
+      "email": "some@email.com",
+      "message": "Message content text"
+    }
+    ```

@@ -46,3 +46,5 @@
       "message": "Message content text"
     }
     ```
+
+### Please be aware of number of writes to DB (db is currently open to all writes and reads)

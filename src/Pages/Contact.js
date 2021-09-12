@@ -6,7 +6,7 @@ import Loading from "./Loader";
 
 const API_URI =
   "https://us-central1-midwestern-api.cloudfunctions.net/api/pages/contact";
-const API_POST_URI =
+const API_CONTACT_POST_URI =
   "https://us-central1-midwestern-api.cloudfunctions.net/api/contacts";
 export default function Contact(props) {
   const [content, setContent] = useState({});
@@ -30,7 +30,7 @@ export default function Contact(props) {
     setLoading(true);
     e.preventDefault();
     axios
-      .post(API_POST_URI, formData)
+      .post(API_CONTACT_POST_URI, formData)
       .then(_res => {
         // quick and dirty loader adding
         setLoading(false);

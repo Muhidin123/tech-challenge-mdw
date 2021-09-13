@@ -1,6 +1,6 @@
 # tech-challenge-mdw
 
-# Midwestern Tech Challenge Tasks 1 and 2
+# Midwestern Tech Challenge Tasks 1, 2 and 3
 
 ## To run app locally
 
